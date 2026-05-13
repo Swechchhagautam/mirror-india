@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Resource Pulse 2026 | Bharat-Setu</title>
+    <style>
+        :root {
+            --primary-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --energy-color: #ef6c00;
+            --ecology-color: #2e7d32;
+            --minerals-color: #7b1fa2;
+            --water-color: #0277bd;
+            --text-main: #2c3e50;
+            --text-sub: #7f8c8d;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--primary-bg); 
+            padding: 20px;
+            margin: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem 5%;
+            background: #1a2a6c;
+            color: white;
+            align-items: center;
+            margin: -20px -20px 40px -20px;
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        .navbar .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffffff 0%, #f2a154 50%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .navbar .logo span {
+            font-weight: 900;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: rgba(242, 161, 84, 0.1);
+        }
+
+        .nav-links li a:hover {
+            background: #f2a154;
+            color: #1a2a6c;
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #f2a154 0%, #ff6b6b 100%);
+            color: white;
+            border: 2px solid white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(242, 161, 84, 0.6);
+        }
+
+        .header { 
+            text-align: center; 
+            margin-bottom: 40px; 
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+        }
+
+        #searchBar { 
+            width: 100%; 
+            max-width: 600px; 
+            padding: 14px 20px; 
+            border-radius: 8px; 
+            border: 2px solid #ddd; 
+            margin-bottom: 30px; 
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto; 
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        #searchBar:focus {
+            outline: none;
+            border: 2px solid #f2a154;
+        }
+
+        .resource-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .pulse-card { 
+            background: var(--card-bg); 
+            border-radius: 12px; 
+            padding: 20px; 
+            border: 1px solid #eef0f2; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
+            transition: transform 0.2s; 
+        }
+
+        .pulse-card:hover { 
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .tag { 
+            font-size: 10px; 
+            font-weight: 800; 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            text-transform: uppercase; 
+            display: inline-block; 
+            margin-bottom: 12px; 
+        }
+
+        .energy { background: #fff3e0; color: var(--energy-color); }
+        .ecology { background: #e8f5e9; color: var(--ecology-color); }
+        .minerals { background: #f3e5f5; color: var(--minerals-color); }
+        .water { background: #e1f5fe; color: var(--water-color); }
+
+        .card-title { 
+            font-size: 19px; 
+            font-weight: 700; 
+            color: var(--text-main); 
+            margin-bottom: 4px; 
+        }
+
+        .status-label { 
+            font-size: 14px; 
+            color: var(--text-sub); 
+            margin-bottom: 15px; 
+        }
+
+        .progress-container { 
+            background: #eceff1; 
+            border-radius: 10px; 
+            height: 10px; 
+            overflow: hidden; 
+            margin-bottom: 15px; 
+        }
+
+        .progress-bar { 
+            height: 100%; 
+            width: 0%; 
+            transition: width 1s ease-in-out; 
+        }
+
+        .footer { 
+            font-size: 11px; 
+            color: #b0bec5; 
+            border-top: 1px solid #f1f1f1; 
+            padding-top: 12px; 
+            margin-top: 10px; 
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-sub);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="bharat setu.html" class="logo">MIRROR-<span>INDIA</span></a>
+        <ul class="nav-links">
+            <li><a href="https://www.pppinindia.gov.in/infrastructure_projects_statewise">Projects</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="pulse.html" class="pulse-nav">⚡ Resource Pulse</a></li>
+            <li><a href="report-corruption.html">Report Corruption</a></li>
+            <button class="login-btn" onclick="window.location.href='gov-login.html'">Gov Login</button>
+        </ul>
+    </nav>
+
+    <div class="header">
+        <h1>India Resource Pulse 2026</h1>
+        <p>Real-time availability, reserves, and national targets.</p>
+        <input type="text" id="searchBar" onkeyup="searchResources()" placeholder="Search 50+ resources (e.g. Lithium, Solar, Forest)...">
+    </div>
+
+    <div class="resource-grid" id="grid">
+    </div>
+
+    <script>
+        const resources = [
+            { cat: 'energy', title: 'Solar Energy Potential', status: '748 GW Capacity', val: 10, color: '#ffc107', foot: 'Min. of New & Renewable Energy' },
+            { cat: 'ecology', title: 'National Forest Cover', status: '24.6% of Land Area', val: 74, color: '#2e7d32', foot: 'Target: 33% by 2030' },
+            { cat: 'energy', title: 'Grid Green-Mix', status: '52.3% Non-Fossil Share', val: 52, color: '#4caf50', foot: 'May 2026 Milestone' },
+            { cat: 'minerals', title: 'Lithium (J&K/Rajasthan)', status: '5.9M Tonnes (Inferred)', val: 5, color: '#9c27b0', foot: 'Exploration Phase Active' },
+            { cat: 'water', title: 'Annual GW Recharge', status: '448 Billion Cubic Meters', val: 60, color: '#03a9f4', foot: 'Central Water Commission' },
+            { cat: 'minerals', title: 'Iron Ore (Haematite)', status: '22.5 Billion Tonnes', val: 90, color: '#d32f2f', foot: 'Odisha: Primary Hub' },
+            { cat: 'energy', title: 'Thorium Reserves', status: '25% of Global Share', val: 100, color: '#ff5722', foot: 'Monazite Sands (Kerala/TN)' },
+            { cat: 'minerals', title: 'Rare Earth Elements', status: '13.15M Tonnes', val: 15, color: '#673ab7', foot: 'Strategic Resource' },
+            { cat: 'ecology', title: 'Bamboo Resources', status: '11.8M Hectares', val: 85, color: '#8bc34a', foot: 'World Rank: #2' },
+            { cat: 'minerals', title: 'Bauxite (Aluminum)', status: '3.9 Billion Tonnes', val: 70, color: '#795548', foot: 'World Rank: #6' },
+            { cat: 'water', title: 'Renewable Water Resources', status: '1907.8 BCM Total', val: 70, color: '#0097a7', foot: 'Central Water Commission 2025' },
+            { cat: 'energy', title: 'Domestic Coal Production', status: '1047.52 Million Tonnes', val: 85, color: '#424242', foot: 'FY 2024-25 Record' },
+            { cat: 'minerals', title: 'Copper Ore Reserves', status: '607 Million Tonnes', val: 45, color: '#e64a19', foot: 'Rajasthan: Primary Source' },
+            { cat: 'ecology', title: 'Wetlands Cover', status: '1.5M Hectares', val: 65, color: '#1abc9c', foot: 'Ramsar Sites: 75' },
+            { cat: 'energy', title: 'Wind Power Capacity', status: '42 GW Installed', val: 60, color: '#34495e', foot: 'Ministry of Power' },
+        ];
+
+        function renderCards(data) {
+            const container = document.getElementById('grid');
+            if (data.length === 0) {
+                container.innerHTML = '<div class="no-results" style="grid-column: 1/-1;">No resources found. Try a different search term.</div>';
+                return;
+            }
+            container.innerHTML = data.map(r => `
+                <div class="pulse-card">
+                    <span class="tag ${r.cat}">${r.cat}</span>
+                    <div class="card-title">${r.title}</div>
+                    <div class="status-label">Status: ${r.status}</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: ${r.val}%; background: ${r.color};"></div>
+                    </div>
+                    <div class="footer">Verified by ${r.foot} • 2026</div>
+                </div>
+            `).join('');
+        }
+
+        function searchResources() {
+            const term = document.getElementById('searchBar').value.toLowerCase();
+            const filtered = resources.filter(r => r.title.toLowerCase().includes(term) || r.status.toLowerCase().includes(term));
+            renderCards(filtered);
+        }
+
+        renderCards(resources);
+    </script>
+</body>
+</html>

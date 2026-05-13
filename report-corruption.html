@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Corruption | Bharat-Setu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .report-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .report-container h2 {
+            color: #1a2a6c;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .report-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .form-section {
+            margin-bottom: 25px;
+        }
+
+        .form-section label {
+            display: block;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-section input,
+        .form-section textarea,
+        .form-section select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-section input:focus,
+        .form-section textarea:focus,
+        .form-section select:focus {
+            outline: none;
+            border-color: #f2a154;
+            box-shadow: 0 0 0 3px rgba(242, 161, 84, 0.1);
+        }
+
+        .form-section textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .hint-text {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #1a2a6c 0%, #f2a154 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(26, 42, 108, 0.3);
+        }
+
+        .safety-info {
+            background: #e8f5e9;
+            border-left: 5px solid #2e7d32;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            color: #2e7d32;
+        }
+
+        .safety-info strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .required-field::after {
+            content: " *";
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="bharat setu.html" class="logo">MIRROR-<span>INDIA</span></a>
+        <ul class="nav-links">
+            <li><a href="https://www.pppinindia.gov.in/infrastructure_projects_statewise">Projects</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="pulse.html" class="pulse-nav">⚡ Resource Pulse</a></li>
+            <li><a href="report-corruption.html">Report Corruption</a></li>
+            <button class="login-btn" onclick="window.location.href='gov-login.html'">Gov Login</button>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Report <span>Corruption</span></h1>
+        <p>Help us maintain transparency and accountability in public projects</p>
+    </header>
+
+    <main class="container">
+        <div class="report-container">
+            <h2>Flag a Discrepancy</h2>
+            <p class="report-subtitle">Your information helps ensure every rupee is spent correctly</p>
+
+            <div class="safety-info">
+                <strong>🔒 Your Report is Protected</strong>
+                All reports are treated anonymously and confidentially. Your identity will be protected under whistleblower protection laws.
+            </div>
+
+            <form id="corruptionForm">
+                <div class="form-section">
+                    <label for="projectName" class="required-field">Project Name or Location</label>
+                    <input type="text" id="projectName" placeholder="e.g., NH-44 Highway, District Hospital" required>
+                    <p class="hint-text">Enter the name or location of the project where you observed the issue</p>
+                </div>
+
+                <div class="form-section">
+                    <label for="category" class="required-field">Issue Category</label>
+                    <select id="category" required>
+                        <option value="">-- Select a Category --</option>
+                        <option value="fund-misuse">Fund Misuse</option>
+                        <option value="work-not-done">Work Not Completed</option>
+                        <option value="poor-quality">Poor Quality Work</option>
+                        <option value="fake-billing">Fake/Inflated Billing</option>
+                        <option value="material-theft">Material Theft</option>
+                        <option value="labor-issue">Labor/Safety Issues</option>
+                        <option value="environmental">Environmental Violation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-section">
+                    <label for="description" class="required-field">Describe the Issue</label>
+                    <textarea id="description" placeholder="Provide detailed information about what you observed. Include dates, amounts (if known), and any specific discrepancies." required></textarea>
+                    <p class="hint-text">Be as specific as possible to help investigators</p>
+                </div>
+
+                <div class="form-section">
+                    <label for="evidence" class="required-field">Do you have supporting evidence?</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="evidence" value="photos"> Photos/Videos</label>
+                        <label><input type="checkbox" name="evidence" value="documents"> Documents</label>
+                        <label><input type="checkbox" name="evidence" value="witnesses"> Witness Information</label>
+                        <label><input type="checkbox" name="evidence" value="none"> No Evidence</label>
+                    </div>
+                    <p class="hint-text">Evidence strengthens investigations (attach separately if needed)</p>
+                </div>
+
+                <div class="form-section">
+                    <label for="contact" class="required-field">Contact Method (Optional)</label>
+                    <select id="contact" required>
+                        <option value="">-- Select Contact Preference --</option>
+                        <option value="anonymous">Completely Anonymous</option>
+                        <option value="email">Email Only</option>
+                        <option value="phone">Phone Call</option>
+                    </select>
+                    <p class="hint-text">Choose how you'd prefer to be contacted for updates (if needed)</p>
+                </div>
+
+                <div class="form-section" id="contactDetails" style="display:none;">
+                    <label for="contactInfo">Your Contact Information</label>
+                    <input type="email" id="contactInfo" placeholder="your.email@example.com or phone number">
+                    <p class="hint-text">This will be kept confidential</p>
+                </div>
+
+                <button type="submit" class="submit-btn">Generate Report for MHA</button>
+            </form>
+
+            <div class="safety-info" style="background: #e3f2fd; border-left-color: #0277bd; color: #0277bd; margin-top: 30px;">
+                <strong>📧 Submit Your Report to Ministry of Home Affairs</strong>
+                <p style="margin: 10px 0 0 0;">After generating your report above, submit it using one of these official channels:</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #d32f2f;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">🏛️ MHA</h3>
+                    <p><strong>Ministry of Home Affairs</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">General & Political Corruption</p>
+                    <a href="mailto:corruption.report@mha.gov.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">corruption.report@mha.gov.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-2301 7331</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #1565c0;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">🏠 MoHUA</h3>
+                    <p><strong>Ministry of Housing & Urban Affairs</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Urban Infrastructure & Construction</p>
+                    <a href="mailto:grievance.mohhua@gov.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">grievance.mohhua@gov.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-2306 5000</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #f57c00;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">🚄 MoR</h3>
+                    <p><strong>Ministry of Railways</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Railway Infrastructure & Projects</p>
+                    <a href="mailto:vigilance@indianrailways.gov.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">vigilance@indianrailways.gov.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-2338 0345</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #6d4c41;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">🛣️ MoRTH</h3>
+                    <p><strong>Ministry of Road Transport & Highways</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Road & Highway Projects</p>
+                    <a href="mailto:grievance@morth.gov.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">grievance@morth.gov.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-2619 5411</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #0277bd;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">💧 MoWR</h3>
+                    <p><strong>Ministry of Water Resources</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Water & Irrigation Projects</p>
+                    <a href="mailto:complaint.mowr@gov.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">complaint.mowr@gov.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-2437 1000</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #f39c12;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">⚡ MoP</h3>
+                    <p><strong>Ministry of Power</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Power & Energy Projects</p>
+                    <a href="mailto:vigilance.mop@nic.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">vigilance.mop@nic.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-2436 9000</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #27ae60;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">🏥 MoHFW</h3>
+                    <p><strong>Ministry of Health & Family Welfare</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Health Infrastructure & Hospitals</p>
+                    <a href="mailto:vigilance.mohfw@gov.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">vigilance.mohfw@gov.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-2307 8403</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #9c27b0;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">📚 MoE</h3>
+                    <p><strong>Ministry of Education</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Educational Infrastructure</p>
+                    <a href="mailto:grievance.moe@nic.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">grievance.moe@nic.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-2306 9192</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #e64a19;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">🛡️ MoD</h3>
+                    <p><strong>Ministry of Defence</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Defence & Military Projects</p>
+                    <a href="mailto:vigilance.mod@nic.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">vigilance.mod@nic.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-2301 7623</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #8bc34a;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">⛽ MoPNG</h3>
+                    <p><strong>Ministry of Petroleum & Natural Gas</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Energy & Petroleum Projects</p>
+                    <a href="mailto:vigilance.mopng@nic.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">vigilance.mopng@nic.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-2306 1000</p>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #d32f2f;">
+                    <h3 style="color: #1a2a6c; margin-top: 0;">🔍 CBI</h3>
+                    <p><strong>Central Bureau of Investigation</strong></p>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Serious Corruption Cases</p>
+                    <a href="mailto:grievance@cbi.gov.in" style="color: #f2a154; text-decoration: none; font-weight: bold; font-size: 0.9rem;">grievance@cbi.gov.in</a>
+                    <p style="font-size: 0.85rem; color: #999; margin-top: 8px;">Ph: +91-11-4100 0001</p>
+                </div>
+
+            </div>
+
+            <div style="background: #fff3e0; border-left: 5px solid #ef6c00; padding: 15px; border-radius: 5px; margin-top: 30px;">
+                <strong style="color: #ef6c00;">📋 Ministry Contact Guide:</strong>
+                <ul style="margin: 10px 0; padding-left: 20px; font-size: 0.9rem;">
+                    <li><strong>Roads & Highways</strong> → Ministry of Road Transport & Highways (MoRTH)</li>
+                    <li><strong>Railways</strong> → Ministry of Railways (MoR)</li>
+                    <li><strong>Urban Projects & Buildings</strong> → Ministry of Housing & Urban Affairs (MoHUA)</li>
+                    <li><strong>Water & Irrigation</strong> → Ministry of Water Resources (MoWR)</li>
+                    <li><strong>Power & Electricity</strong> → Ministry of Power (MoP)</li>
+                    <li><strong>Hospitals & Health Centers</strong> → Ministry of Health & Family Welfare (MoHFW)</li>
+                    <li><strong>Schools & Education</strong> → Ministry of Education (MoE)</li>
+                    <li><strong>Petroleum & Oil</strong> → Ministry of Petroleum & Natural Gas (MoPNG)</li>
+                    <li><strong>Defence Projects</strong> → Ministry of Defence (MoD)</li>
+                    <li><strong>Serious/Major Crimes</strong> → Central Bureau of Investigation (CBI)</li>
+                </ul>
+            </div>
+
+            <div style="background: #e3f2fd; border-left: 5px solid #0277bd; padding: 15px; border-radius: 5px; margin-top: 20px;">
+                <strong style="color: #0277bd;">⚠️ Important Instructions:</strong>
+                <ul style="margin: 10px 0; padding-left: 20px; font-size: 0.9rem;">
+                    <li>Keep a copy of your report reference ID for your records</li>
+                    <li>Select the correct ministry based on the project type</li>
+                    <li>Submit via official channels only - avoid unofficial intermediaries</li>
+                    <li>Include all supporting documents and evidence with your submission</li>
+                    <li>Follow up on your complaint using the reference number provided</li>
+                </ul>
+            </div>
+
+            <p style="text-align: center; color: #999; margin-top: 30px; font-size: 0.9rem;">
+                Your report will be treated with utmost confidentiality and forwarded to the appropriate authority for investigation.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('contact').addEventListener('change', function() {
+            const contactDetails = document.getElementById('contactDetails');
+            if (this.value === 'anonymous') {
+                contactDetails.style.display = 'none';
+                document.getElementById('contactInfo').required = false;
+            } else {
+                contactDetails.style.display = 'block';
+                document.getElementById('contactInfo').required = true;
+            }
+        });
+
+        document.getElementById('corruptionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const referenceId = '#RPT' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            const projectName = document.getElementById('projectName').value;
+            const category = document.getElementById('category').value;
+            const description = document.getElementById('description').value;
+            
+            const reportText = `
+COMPLAINT REPORT - MINISTRY OF HOME AFFAIRS
+Reference ID: ${referenceId}
+Date: ${new Date().toLocaleDateString('en-IN')}
+
+PROJECT NAME: ${projectName}
+ISSUE CATEGORY: ${category}
+
+DETAILED DESCRIPTION:
+${description}
+
+---
+This report has been submitted through Bharat-Setu Transparency Portal.
+Forward this report to MHA Anti-Corruption Cell at:
+Email: corruption.report@mha.gov.in
+Portal: https://vikaas.nic.in/
+            `;
+            
+            alert(`Report Generated!\n\nReference ID: ${referenceId}\n\nYour report is ready. Copy the details below and submit to Ministry of Home Affairs using the provided channels:\n\n${reportText}`);
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(reportText).then(() => {
+                alert('Report details copied to clipboard. You can now paste and send to MHA.');
+            });
+            
+            this.reset();
+        });
+    </script>
+</body>
+</html>

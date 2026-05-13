@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Employee Login | Bharat-Setu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a2a6c 0%, #667eea 50%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 450px;
+            width: 100%;
+            padding: 50px 40px;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .login-header .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #1a2a6c 0%, #f2a154 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .login-header h1 {
+            font-size: 1.8rem;
+            color: #1a2a6c;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .login-header p {
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #f2a154;
+            box-shadow: 0 0 0 4px rgba(242, 161, 84, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #bbb;
+        }
+
+        .form-hint {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 6px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: 500;
+            color: #666;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #1a2a6c 0%, #f2a154 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(26, 42, 108, 0.4);
+        }
+
+        .login-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password a {
+            color: #f2a154;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: #1a2a6c;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            position: relative;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .security-info {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #2e7d32;
+        }
+
+        .security-info strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .help-text {
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .help-text a {
+            color: #f2a154;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .success-message {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <div class="logo">MIRROR-<span style="color: #f2a154;">INDIA</span></div>
+            <h1>Government Login</h1>
+            <p>Access Portal for Government Employees</p>
+        </div>
+
+        <div class="security-info">
+            <strong>🔒 Secure Login Portal</strong>
+            Credentials are encrypted and protected. Only authorized government employees can access this portal.
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="empID">Government Employee ID *</label>
+                <input type="text" id="empID" name="empID" placeholder="e.g., EMP-2024-001234" required>
+                <p class="form-hint">Your unique government employee identification number</p>
+            </div>
+
+            <div class="form-group">
+                <label for="ministry">Department/Ministry *</label>
+                <select id="ministry" name="ministry" required>
+                    <option value="">-- Select Your Ministry --</option>
+                    <option value="mha">Ministry of Home Affairs</option>
+                    <option value="mohhua">Ministry of Housing & Urban Affairs</option>
+                    <option value="mor">Ministry of Railways</option>
+                    <option value="morth">Ministry of Road Transport & Highways</option>
+                    <option value="mowr">Ministry of Water Resources</option>
+                    <option value="mop">Ministry of Power</option>
+                    <option value="mohfw">Ministry of Health & Family Welfare</option>
+                    <option value="moe">Ministry of Education</option>
+                    <option value="mod">Ministry of Defence</option>
+                    <option value="mopng">Ministry of Petroleum & Natural Gas</option>
+                    <option value="other">Other Ministry/Department</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Official Email ID *</label>
+                <input type="email" id="email" name="email" placeholder="name@ministry.gov.in" required>
+                <p class="form-hint">Your official government email address</p>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="otp">OTP (One-Time Password) *</label>
+                <input type="text" id="otp" name="otp" placeholder="6-digit OTP sent to your registered mobile" maxlength="6" required>
+                <p class="form-hint">Enter the OTP sent to your registered mobile number</p>
+            </div>
+
+            <div class="forgot-password">
+                <a href="#" onclick="showForgotPassword()">Forgot Password or OTP?</a>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the Data Protection & Privacy Policy</label>
+            </div>
+
+            <button type="submit" class="login-btn">Login to Portal</button>
+        </form>
+
+        <div class="divider">
+            <span>Need Help?</span>
+        </div>
+
+        <div class="help-text">
+            <p>For technical issues, contact: <a href="mailto:support@bharat-setu.gov.in">support@bharat-setu.gov.in</a></p>
+            <p>Helpline: <a href="tel:+911800111555">1800-111-555</a> (Monday-Friday, 9 AM - 5 PM IST)</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+            <p style="color: #999; font-size: 0.85rem; margin: 0;">
+                <a href="index.html" style="color: #f2a154; text-decoration: none;">← Back to Home</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const empID = document.getElementById('empID').value;
+            const ministry = document.getElementById('ministry').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const otp = document.getElementById('otp').value;
+            const terms = document.getElementById('terms').checked;
+            
+            const errorMsg = document.getElementById('errorMessage');
+            const successMsg = document.getElementById('successMessage');
+            
+            errorMsg.style.display = 'none';
+            successMsg.style.display = 'none';
+            
+            // Validation
+            if (!empID || !ministry || !email || !password || !otp) {
+                errorMsg.textContent = '❌ Please fill all required fields.';
+                errorMsg.style.display = 'block';
+                return;
+            }
+            
+            if (otp.length !== 6 || isNaN(otp)) {
+                errorMsg.textContent = '❌ Please enter a valid 6-digit OTP.';
+                errorMsg.style.display = 'block';
+                return;
+            }
+            
+            if (!terms) {
+                errorMsg.textContent = '❌ Please accept the Data Protection & Privacy Policy.';
+                errorMsg.style.display = 'block';
+                return;
+            }
+            
+            // Simulate successful login
+            successMsg.textContent = `✅ Login Successful! Welcome, ${email}. Redirecting to dashboard...`;
+            successMsg.style.display = 'block';
+            
+            setTimeout(() => {
+                alert(`Government Employee Login Successful!\n\nEmployee ID: ${empID}\nMinistry: ${ministry}\nEmail: ${email}\n\nYou will now be redirected to the dashboard.`);
+                // In a real application, redirect to dashboard
+                // window.location.href = 'dashboard.html';
+            }, 1500);
+        });
+        
+        function showForgotPassword() {
+            alert('Forgot Password/OTP Support:\n\n1. Email: support@bharat-setu.gov.in\n2. Call Helpline: 1800-111-555\n3. Visit your ministry\'s IT office\n\nPlease have your Employee ID ready.');
+        }
+    </script>
+</body>
+</html>

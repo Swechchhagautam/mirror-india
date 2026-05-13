@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat-Setu | Transparency Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="bharat setu.html" class="logo">MIRROR-<span>INDIA</span></a>
+        <ul class="nav-links">
+            <li><a href="https://www.pppinindia.gov.in/infrastructure_projects_statewise">Projects</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="pulse.html" class="pulse-nav">⚡ Resource Pulse</a></li>
+            <li><a href="report-corruption.html">Report Corruption</a></li>
+            <button class="login-btn" onclick="window.location.href='gov-login.html'">Gov Login</button>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Real-Time <span>Accountability</span></h1>
+        <p>Every rupee spent, every brick laid—monitored by you.</p>
+    </header>
+
+    <main class="container">
+        <section class="dashboard">
+            <h2>Daily Work Pulse</h2>
+            <div class="grid" id="project-grid">
+                <div class="card">
+                    <span class="tag construction">Construction</span>
+                    <h3>NH-44 Highway Maintenance</h3>
+                    <p>Status: Layering Bitumen (Day 14)</p>
+                    <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
+                    <small>Updated 2 hours ago by Dept of Transport</small>
+                </div>
+
+                <div class="card">
+                    <span class="tag health">Healthcare</span>
+                    <h3>District Hospital Oxygen Supply</h3>
+                    <p>Current Stock: 85% (Optimal)</p>
+                    <button class="verify-btn">Verify as Citizen</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="report-box">
+            <h2>Flag an Issue</h2>
+            <form id="reportForm">
+                <input type="text" placeholder="Project Name or Location" required>
+                <textarea placeholder="Describe the discrepancy (e.g., funds used but work not started)"></textarea>
+                <button type="submit">Submit Anonymously</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
