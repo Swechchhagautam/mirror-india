@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bharat-Setu | Transparency Portal</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        @media (max-width: 600px) {
+            .dashboard h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .report-box {
+                margin-top: 2rem;
+                padding: 25px;
+            }
+
+            .report-box h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -20,8 +37,35 @@
     </nav>
 
     <header class="hero">
-        <h1>Real-Time <span>Accountability</span></h1>
-        <p>Every rupee spent, every brick laid—monitored by you.</p>
+        <div class="hero-inner">
+            <div class="hero-copy">
+                <h1>Real-Time <span>Accountability</span></h1>
+                <p>Every rupee spent, every brick laid—monitored by you.</p>
+                <div class="hero-pillars">
+                    <div class="pillar"><strong>Transparency</strong><span>Live progress checks</span></div>
+                    <div class="pillar"><strong>Access</strong><span>Citizen-led reporting</span></div>
+                </div>
+            </div>
+            <div class="hero-visuals">
+                <div class="hero-image-wrapper">
+                    <img src="images/Blogheader_PPEM-goes-Datacenter.jpg" alt="Infrastructure monitoring">
+                    <div class="hero-floating-badge">
+                        <span class="badge-icon">📊</span>
+                        <div class="badge-text">
+                            <strong>Live Tracking</strong>
+                            <span>Real-time updates</span>
+                        </div>
+                    </div>
+                    <div class="hero-floating-badge-2">
+                        <span class="badge-icon">🛡️</span>
+                        <div class="badge-text">
+                            <strong>100% Transparent</strong>
+                            <span>Citizen verified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main class="container">
@@ -45,12 +89,41 @@
             </div>
         </section>
 
-        <section class="report-box">
-            <h2>Flag an Issue</h2>
-            <form id="reportForm">
-                <input type="text" placeholder="Project Name or Location" required>
-                <textarea placeholder="Describe the discrepancy (e.g., funds used but work not started)"></textarea>
-                <button type="submit">Submit Anonymously</button>
+        <section class="report-box modern-report">
+            <div class="report-header">
+                <h2>🚩 Flag an Issue</h2>
+                <p>See something wrong? Let us know anonymously. Your voice matters.</p>
+            </div>
+            <form id="reportForm" class="modern-form">
+                <div class="form-group">
+                    <label for="projectLocation">Project Name or Location</label>
+                    <input type="text" id="projectLocation" placeholder="e.g., NH-44 Highway construction site" required>
+                </div>
+                
+                <div class="form-group">
+                    <div class="label-with-action">
+                        <label for="issueDescription">Discrepancy Details</label>
+                        <button type="button" id="aiGenerateBtn" class="ai-btn">
+                            <span class="sparkle-icon">✨</span> Auto-Generate
+                        </button>
+                    </div>
+                    <textarea id="issueDescription" rows="4" placeholder="Describe what you observed (e.g., funds used but work not started, poor quality materials...)" required></textarea>
+                </div>
+
+                <div class="form-group file-upload-group">
+                    <label for="photoUpload" class="file-upload-label">
+                        <div class="upload-icon">📷</div>
+                        <span>Click to upload evidence (Photos/Docs)</span>
+                        <small>Max file size: 5MB</small>
+                    </label>
+                    <input type="file" id="photoUpload" accept="image/*, .pdf" hidden>
+                    <div id="fileNameDisplay" class="file-name-display"></div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>Submit Anonymously</span>
+                    <span class="btn-icon">→</span>
+                </button>
             </form>
         </section>
     </main>

@@ -131,6 +131,39 @@
             content: " *";
             color: #d32f2f;
         }
+
+        @media (max-width: 900px) {
+            .report-container {
+                margin: 20px 15px;
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .report-container {
+                margin: 15px 12px;
+                padding: 20px;
+            }
+
+            .form-section label {
+                font-size: 0.95rem;
+            }
+
+            .form-section input,
+            .form-section textarea,
+            .form-section select {
+                font-size: 0.95rem;
+            }
+
+            .checkbox-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .submit-btn {
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body>
